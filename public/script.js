@@ -4,7 +4,7 @@ document.getElementById('postForm').addEventListener('submit', function(event) {
     const formData = new FormData(this);
     const theme = formData.get('theme');
 
-    fetch(`http://192.168.49.2/api/script?theme=${theme}`, {
+    fetch(`http://flask-app.abel/script?theme=${theme}`, {
         method: 'POST'
     })
     .then(response => {
