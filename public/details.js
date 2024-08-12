@@ -3,7 +3,7 @@ window.onload = function() {
     const objectId = urlParams.get('id');
     const theme = urlParams.get('theme');
 
-    fetch(`http://192.168.49.2/script/${objectId}`)
+    fetch(`http://192.168.49.2/api/script/${objectId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
