@@ -3,7 +3,7 @@ window.onload = function() {
     const objectId = urlParams.get('id');
     const theme = urlParams.get('theme');
 
-    fetch(`http://localhost:5000/script/${objectId}`)
+    fetch(`http://flask-app:5000/script/${objectId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
