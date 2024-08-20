@@ -53,10 +53,3 @@ jobs:
           NEW_VERSION=${{ steps.version.outputs.new_version }}
           git tag $NEW_VERSION
           git push origin $NEW_VERSION
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ steps.version.outputs.new_version }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
