@@ -31,7 +31,7 @@ jobs:
         id: version
         run: |
           # Extract the latest tag, or set an initial version if no tags are found
-          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1` 2>/dev/null || echo "v0.0.0")
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1` 2>/dev/null || echo "0.0.0")
           
           # Get the latest commit message
           COMMIT_MSG=$(git log -1 --pretty=%B)
@@ -46,7 +46,7 @@ jobs:
           # Create the new version
           NEW_VERSION=$(semver -i ${CHANGE_LEVEL} ${LATEST_TAG})
           echo "New version is $NEW_VERSION"
-          
+
           echo "::set-output name=new_version::$NEW_VERSION"
       - name: Create Git tag
         run: |
