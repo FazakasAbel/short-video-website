@@ -35,7 +35,7 @@ jobs:
           MAJOR=$(echo "$VERSION" | cut -d. -f1)
           MINOR=$(echo "$VERSION" | cut -d. -f2)
           PATCH=$(echo "$VERSION" | cut -d. -f3)
-
+          echo "Previous version is ${MAJOR}.${MINOR}.${PATCH}"
           # Get the latest commit message
           COMMIT_MSG=$(git log -1 --pretty=%B)
           
