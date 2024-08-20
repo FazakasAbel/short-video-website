@@ -7,7 +7,7 @@ on:
       - main
 
 permissions:
-  contents: write  # This gives the GITHUB_TOKEN permission to push tags and releases
+  contents: write  # gives the GITHUB_TOKEN permission to push tags and releases
 
 jobs:
   release:
