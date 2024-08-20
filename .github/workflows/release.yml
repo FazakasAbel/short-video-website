@@ -38,13 +38,15 @@ jobs:
           
           # Determine the new version based on the commit message
           if [[ $COMMIT_MSG =~ "MAJOR" ]]; then
-            NEW_VERSION=$(semver bump major $LATEST_TAG)
+            CHANGE_LEVEL = "major"
           elif [[ $COMMIT_MSG =~ "MINOR" ]]; then
-            NEW_VERSION=$(semver bump minor $LATEST_TAG)
+            CHANGE_LEVEL = "minor"
           else
-            NEW_VERSION=$(semver bump patch $LATEST_TAG)
+            CHANGE_LEVEL = "patch"
           fi
-          
+
+          # Create the new version
+          NEW_VERSION = semver -i ${{CHANGE_LEVEL}}
           echo "New version is $NEW_VERSION"
           echo "::set-output name=new_version::$NEW_VERSION"
       - name: Create Git tag
