@@ -31,6 +31,8 @@ jobs:
         id: version
         run: |
           # Extract the latest tag, or set an initial version if no tags are found
+          LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1` 2>/dev/null)
+          echo "LATEST_TAG is $LATEST_TAG"
           LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1` 2>/dev/null || echo "0.0.0")
           
           # Get the latest commit message
