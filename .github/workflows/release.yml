@@ -35,16 +35,16 @@ jobs:
           
           # Get the latest commit message
           COMMIT_MSG=$(git log -1 --pretty=%B)
-          CHANGE_LEVEL = "patch"
+          CHANGE_LEVEL="patch"
           # Determine the new version based on the commit message
           if [[ $COMMIT_MSG =~ "MAJOR" ]]; then
-            CHANGE_LEVEL = "major"
+            CHANGE_LEVEL="major"
           elif [[ $COMMIT_MSG =~ "MINOR" ]]; then
-            CHANGE_LEVEL = "minor"
+            CHANGE_LEVEL="minor"
           fi
 
           # Create the new version
-          NEW_VERSION = semver -i ${{CHANGE_LEVEL}}
+          NEW_VERSION = semver -i $CHANGE_LEVEL $NEW_VERSION
           echo "New version is $NEW_VERSION"
           echo "::set-output name=new_version::$NEW_VERSION"
       - name: Create Git tag
