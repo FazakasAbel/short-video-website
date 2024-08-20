@@ -35,14 +35,12 @@ jobs:
           
           # Get the latest commit message
           COMMIT_MSG=$(git log -1 --pretty=%B)
-          
+          CHANGE_LEVEL = "patch"
           # Determine the new version based on the commit message
           if [[ $COMMIT_MSG =~ "MAJOR" ]]; then
             CHANGE_LEVEL = "major"
           elif [[ $COMMIT_MSG =~ "MINOR" ]]; then
             CHANGE_LEVEL = "minor"
-          else
-            CHANGE_LEVEL = "patch"
           fi
 
           # Create the new version
