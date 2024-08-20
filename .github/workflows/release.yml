@@ -45,6 +45,7 @@ jobs:
 
           # Create the new version
           NEW_VERSION=$(semver -i ${CHANGE_LEVEL} ${LATEST_TAG})
+          echo "Latest tag is $LATEST_TAG"
           echo "New version is $NEW_VERSION"
           echo "::set-output name=new_version::$NEW_VERSION"
       - name: Create Git tag
