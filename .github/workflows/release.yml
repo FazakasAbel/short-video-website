@@ -16,8 +16,12 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          git config user.name "FazakasAbel"
+          git config user.email "fazakas.abel@gmail.com"
+
+      - name: Install semver
+        run: |
+          npm install -g semver
 
       - name: Determine semantic version
         id: version
