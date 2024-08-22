@@ -3,7 +3,7 @@ window.onload = function() {
     const objectId = urlParams.get('id');
     const theme = urlParams.get('theme');
 
-    fetch(`https://flask-app.abel/script/${objectId}`)
+    fetch(`http://default-lb-1448518957.eu-north-1.elb.amazonaws.com/api/script/${objectId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
