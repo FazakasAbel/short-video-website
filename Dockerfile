@@ -1,4 +1,3 @@
-# Stage 1: Build and Compile
 FROM node:14 AS build
 
 # Set the working directory
@@ -13,11 +12,9 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Build the application (optional, if there is a build step)
-# RUN npm run build
-
-# Stage 2: Production Environment
 FROM node:14-slim AS production
+
+RUN npm run build
 
 # Set the working directory
 WORKDIR /app
